@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<body onload="inicializa()">
+
+    <script>
+        var a = 0;
+        function incrementar() {
+            let b = document.getElementById("select").value;
+            a = a + Number.parseInt(b);
+            document.getElementById("campo").innerHTML = a;
+        }
+
+        function decrementar() {
+            let b = document.getElementById("select").value;
+            a = a - Number.parseInt(b);
+            document.getElementById("campo").innerHTML = a;
+        }
+
+        function inicializa() {
+            document.getElementById("campo").innerHTML = a;
+        }
+    </script>
+
+    <p id="campo">
+    </p>
+
+    <select id="select">
+        <option value="1">1</option>
+        <option value="5">5</option>
+        <option value="10">10</option>
+    </select>
+    <br/>
+
+    <input type="button" onclick="incrementar()" value="Incrementar">
+    <br/>
+
+    <input type="button" onclick="decrementar()" value="Decrementar">
+
+</body>
+
+</html>
