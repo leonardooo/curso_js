@@ -1,0 +1,56 @@
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <script type="text/javascript">
+
+        function calcular() {
+            let validos = parseInt(document.getElementById('validos').value);
+            let brancos = parseInt(document.getElementById('brancos').value);
+            let nulos = parseInt(document.getElementById('nulos').value);
+
+            let soma = validos + brancos + nulos;
+
+            document.getElementById('resp').innerHTML = 'Total: ' + soma + '<br/>Válidos: ' +
+             trunc((validos/soma)*100) + '%<br/>Brancos: ' + trunc((brancos/soma)*100) + 
+             '%<br/>Nulos: ' + trunc((nulos/soma)*100) + '%';
+        }
+
+        function validar(input, idDiv) {
+            let resp = parseFloat(input.value);
+            if(isNaN(resp) || !Number.isInteger(resp) || resp < 0) {
+                document.getElementById(idDiv).innerHTML = 'Precisa ser valor inteiro positivo...';
+                document.getElementById('botao').disabled = true;
+            } else {
+                document.getElementById(idDiv).innerHTML = '';
+            }
+
+            if(document.getElementById('msgValido').innerHTML === '' &&
+                document.getElementById('msgBranco').innerHTML === '' &&
+                document.getElementById('msgNulo').innerHTML === '') {
+
+                document.getElementById('botao').disabled = false;
+            }
+            
+        }
+
+        function trunc(resp) {
+            resp *= 100;
+            resp = Number.parseInt(resp);
+            resp = Number.parseFloat(resp / 100);
+            return resp;
+        }
+
+    </script>
+</head>
+
+<body>
+    <input id="validos" type="text" onkeyup="validar(this, 'msgValido')"/> votos válidos <div id="msgValido" style="color:red;">Precisa ser valor inteiro positivo...</div><br/>
+    <input id="brancos" type="text" onkeyup="validar(this, 'msgBranco')"/> votos brancos <div id="msgBranco" style="color:red;">Precisa ser valor inteiro positivo...</div><br/>
+    <input id="nulos" type="text" onkeyup="validar(this, 'msgNulo')"/> votos nulos <div id="msgNulo" style="color:red;">Precisa ser valor inteiro positivo...</div><br/>
+    <input id="botao" disabled="true" type="button" onclick="calcular()" value="Apurar"/> <br/><br/>
+
+    <div id="resp"></div>
+</body>
+
+</html>

@@ -1,0 +1,29 @@
+<html>
+
+<head>
+    <meta charset="UTF-8"/>
+    <script type="text/javascript">
+        function converter(input) {
+            let resp = parseFloat(input.value);
+            if(isNaN(resp)) {
+                document.getElementById('resp').innerHTML = 'Digite um valor válido...';
+                return;
+            }
+
+            resp = (resp - 32) * 5 / 9;
+            resp *= 100;
+            resp = Number.parseInt(resp);
+            resp = Number.parseFloat(resp / 100);
+            document.getElementById('resp').innerHTML = resp + ' celcius';
+        }
+    </script>
+</head>
+
+<body>
+    <input type="text" onkeyup="converter(this);" />
+    <label>fahrenheit</label>
+    <br/>
+    <div id="resp"></div>
+</body>
+
+</html>

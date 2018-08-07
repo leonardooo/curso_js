@@ -1,0 +1,18 @@
+<html>
+<body>
+    <script>
+        console.log(this === window); // objeto global (window em browsers)
+
+        function f1() {
+            return this;
+        }
+        console.log(f1() === window); // objeto global (window em browsers)
+
+        let o1 = {
+            prop: 37,
+            f: function () { return this.prop; }
+        };
+        console.log(o1.f() === o1); // objeto o1
+    </script>
+</body>
+</html>
