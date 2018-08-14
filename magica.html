@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <script type="text/javascript">
+            
+            function claro() {
+                document.getElementById('res').innerHTML = "Acertou, MIZERAVI!!!!";
+            }
+
+            function nao1() {
+                document.getElementById('nao1').disabled = true;
+                document.getElementById('nao2').disabled = false;
+            }
+
+            function nao2() {
+                document.getElementById('nao1').disabled = false;
+                document.getElementById('nao2').disabled = true;
+            }
+        </script>
+    </head>
+    <body>
+        <label><b>Sport é o maior do Nordeste?</b></label><br/>
+        <input type="button" onclick="claro()" value="CLARO">
+        <input id="nao1" type="button" value="Não" onmouseover="nao1()">
+        <input id="nao2" type="button" value="Não" onmouseover="nao2()" disabled="true">
+        <div id="res"></div>
+    </body>
+</html>
